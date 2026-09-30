@@ -12,13 +12,13 @@
 <nav>
     <div class="logo">
         <div class="logo-icon">T</div>
-        Tabby <b>Flex</b>
+        Tabby <span>Flex</span>
     </div>
 
     <div class="nav-links">
-        <a href="#plansSection">My Plans</a>
+        <a href="#flex">Flex Payment</a>
         <a href="#how">How it works</a>
-        <button class="profile">My Account</button>
+        <button>My Account</button>
     </div>
 </nav>
 
@@ -27,325 +27,198 @@
 
     <section class="hero">
 
-        <div class="hero-text">
+        <div class="hero-content">
 
             <div class="badge">✦ Flexible payments</div>
 
             <h1>
-                Pay your way.
-                <span>Flex your payments.</span>
+                Pay more when you can.
+                <span>Pay less when you need.</span>
             </h1>
 
             <p>
-                Choose a payment plan that fits your budget.
-                Split your purchase into simple payments
-                and stay in control of your spending.
+                Your payments shouldn't always have to be the same.
+                Adjust what you pay based on what works for you.
             </p>
 
-        </div>
-
-
-        <div class="calculator">
-
-            <div class="calculator-header">
-                <h2>Plan your purchase</h2>
-                <p>See how your purchase could be split.</p>
-            </div>
-
-            <label for="amount">Purchase amount</label>
-
-            <div class="amount-input">
-                <span>SAR</span>
-                <input type="number" id="amount" placeholder="1,200" min="1">
-            </div>
-
-            <button class="primary-btn" id="seeOptions">
-                See my options
-            </button>
-
-            <p class="small-text">
-                Prototype simulation — not an actual Tabby offer
-            </p>
+            <a href="#flex" class="hero-btn">
+                Try Flex Payment ↓
+            </a>
 
         </div>
 
-    </section>
 
+        <div class="hero-card">
 
-
-    <section id="plansSection">
-
-        <div class="section-title">
-            <span class="eyebrow">YOUR OPTIONS</span>
-            <h2>Choose what works for you</h2>
-        </div>
-
-
-        <div class="plans">
-
-            <div class="plan-card">
-
-                <div class="plan-top">
-                    <h3>4 Payments</h3>
-                    <div class="check">✓</div>
-                </div>
-
-                <div class="price">
-                    <span id="fourPayment">300</span>
-                    <small>SAR</small>
-                </div>
-
-                <p>Pay every month</p>
-
-                <div class="divider"></div>
-
-                <div class="plan-info">
-                    <span>Number of payments</span>
-                    <strong>4</strong>
-                </div>
-
-                <button class="select-btn" onclick="selectPlan(4)">
-                    Choose plan
-                </button>
-
+            <div class="mini-top">
+                <span>Active purchase</span>
+                <div class="active">● Active</div>
             </div>
 
+            <p class="mini-label">Remaining balance</p>
 
+            <h2 id="heroBalance">1,200 SAR</h2>
 
-            <div class="plan-card recommended">
-
-                <div class="recommended-label">POPULAR</div>
-
-                <div class="plan-top">
-                    <h3>6 Payments</h3>
-                    <div class="check">✓</div>
-                </div>
-
-                <div class="price">
-                    <span id="sixPayment">200</span>
-                    <small>SAR</small>
-                </div>
-
-                <p>Lower monthly payments</p>
-
-                <div class="divider"></div>
-
-                <div class="plan-info">
-                    <span>Number of payments</span>
-                    <strong>6</strong>
-                </div>
-
-                <button class="select-btn dark" onclick="selectPlan(6)">
-                    Choose plan
-                </button>
-
+            <div class="mini-progress">
+                <div id="heroProgress"></div>
             </div>
 
-
-
-            <div class="plan-card">
-
-                <div class="plan-top">
-                    <h3>Flex it</h3>
-                    <div class="flex-icon">✦</div>
-                </div>
-
-                <div class="price">Custom</div>
-
-                <p class="custom-message">
-                    Choose the monthly amount that works
-                    for your budget.
-                </p>
-
-                <div class="divider"></div>
-
-                <div class="plan-info">
-                    <span>Your budget</span>
-                    <strong>You choose</strong>
-                </div>
-
-                <button class="select-btn" onclick="showCustomBuilder()">
-                    Build my plan
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <section id="customBuilder" class="hidden-section">
-
-        <div class="custom-builder">
-
-            <div class="custom-builder-header">
-
+            <div class="mini-stats">
                 <div>
-                    <span class="eyebrow">FLEX BUILDER</span>
-
-                    <h2>Build your own payment plan</h2>
-
-                    <p>
-                        Choose the monthly amount that feels
-                        comfortable for your budget.
-                    </p>
+                    <span>Paid</span>
+                    <strong id="heroPaid">0 SAR</strong>
                 </div>
-
-                <div class="purchase-pill">
-                    Purchase:
-                    <span id="customPurchaseAmount">0 SAR</span>
-                </div>
-
-            </div>
-
-
-            <div class="budget-input-section">
-
-                <label for="monthlyBudget">
-                    I can pay around
-                </label>
-
-                <div class="custom-input">
-                    <span>SAR</span>
-                    <input
-                        type="number"
-                        id="monthlyBudget"
-                        value="200"
-                        min="50"
-                        max="1000"
-                    >
-                </div>
-
-                <input
-                    type="range"
-                    id="budgetSlider"
-                    min="50"
-                    max="1000"
-                    step="25"
-                    value="200"
-                >
-
-                <div class="range-labels">
-                    <span>50 SAR</span>
-                    <span>1,000 SAR</span>
-                </div>
-
-            </div>
-
-
-            <div class="custom-result">
-
-                <div class="result-main">
-                    <span>Estimated monthly payment</span>
-                    <strong id="customMonthly">200 SAR</strong>
-                </div>
-
-                <div class="result-details">
-
-                    <div>
-                        <span>Payments</span>
-                        <strong id="customPayments">6</strong>
-                    </div>
-
-                    <div>
-                        <span>Final payment</span>
-                        <strong id="customFinal">200 SAR</strong>
-                    </div>
-
-                    <div>
-                        <span>Total</span>
-                        <strong id="customTotal">1,200 SAR</strong>
-                    </div>
-
-                </div>
-
-                <p class="mini-note">
-                    Your plan is calculated from the monthly
-                    amount you choose.
-                </p>
-
-            </div>
-
-
-            <button class="primary-btn" onclick="confirmCustomPlan()">
-                Continue with this plan
-            </button>
-
-        </div>
-
-    </section>
-
-
-
-    <section id="selectedPlan" class="hidden-section">
-
-        <div class="selected-plan">
-
-            <div class="selected-header">
-
-                <div>
-                    <span class="eyebrow">YOUR PLAN</span>
-
-                    <h2 id="selectedTitle">
-                        6 Payments
-                    </h2>
-
-                    <p>
-                        Here's how your payments would look.
-                    </p>
-                </div>
-
-                <div class="selected-total">
-                    <span>Purchase total</span>
-                    <strong id="selectedTotal">0 SAR</strong>
-                </div>
-
-            </div>
-
-
-            <div class="progress-area">
-
-                <div class="progress-label">
-                    <span>Payment progress</span>
-                    <span id="progressText">0%</span>
-                </div>
-
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
-
-            </div>
-
-
-            <div class="next-payment">
 
                 <div>
                     <span>Next payment</span>
-                    <strong id="nextPaymentAmount">0 SAR</strong>
+                    <strong id="heroNext">300 SAR</strong>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="flex-section" id="flex">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">FLEX PAYMENT</span>
+
+            <h2>Control your payment</h2>
+
+            <p>
+                You don't always have the same budget every month.
+                Choose what you want to pay today and let Flex update
+                your remaining balance.
+            </p>
+
+        </div>
+
+
+        <div class="payment-layout">
+
+            <div class="payment-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <span class="small-title">PURCHASE</span>
+                        <h3>New purchase</h3>
+                    </div>
+
+                    <div class="purchase-total">
+                        1,200 SAR
+                    </div>
+
                 </div>
 
-                <div class="next-payment-date">
-                    <span>Due</span>
-                    <strong id="nextPaymentDate">Today</strong>
+
+                <div class="balance-box">
+
+                    <span>Remaining balance</span>
+
+                    <strong id="remainingBalance">
+                        1,200 SAR
+                    </strong>
+
+                    <div class="progress">
+                        <div id="progressBar"></div>
+                    </div>
+
+                    <div class="progress-text">
+                        <span id="paidText">0 SAR paid</span>
+                        <span id="percentText">0%</span>
+                    </div>
+
                 </div>
+
+
+                <div class="payment-input-area">
+
+                    <label for="paymentAmount">
+                        How much would you like to pay today?
+                    </label>
+
+                    <div class="payment-input">
+
+                        <span>SAR</span>
+
+                        <input
+                            type="number"
+                            id="paymentAmount"
+                            value="300"
+                            min="1"
+                            max="1200"
+                        >
+
+                    </div>
+
+                    <input
+                        type="range"
+                        id="paymentSlider"
+                        min="50"
+                        max="1200"
+                        value="300"
+                        step="50"
+                    >
+
+                    <div class="slider-labels">
+                        <span>50 SAR</span>
+                        <span>1,200 SAR</span>
+                    </div>
+
+                </div>
+
+
+                <button class="pay-button" id="payButton">
+                    Pay <span id="payButtonAmount">300 SAR</span> today
+                </button>
+
+
+                <p class="prototype-note">
+                    Prototype simulation — not an actual Tabby offer
+                </p>
 
             </div>
 
 
-            <div class="timeline" id="timeline"></div>
 
+            <div class="side-card">
 
-            <div class="confirmation-actions">
+                <div class="side-icon">↗</div>
 
-                <button class="back-btn" onclick="backToPlans()">
-                    ← Change plan
-                </button>
+                <h3>
+                    Your payment,
+                    your choice.
+                </h3>
 
-                <button class="primary-btn confirm" onclick="confirmPlan()">
-                    Confirm plan
-                </button>
+                <p>
+                    Have extra money this month?
+                    Pay more and reduce your remaining balance.
+                </p>
+
+                <div class="example">
+
+                    <div class="example-row">
+                        <span>Original payment</span>
+                        <strong>300 SAR</strong>
+                    </div>
+
+                    <div class="example-arrow">↓</div>
+
+                    <div class="example-row highlight">
+                        <span>You pay today</span>
+                        <strong>450 SAR</strong>
+                    </div>
+
+                    <div class="example-result">
+                        Your balance decreases faster.
+                    </div>
+
+                </div>
 
             </div>
 
@@ -355,89 +228,105 @@
 
 
 
-    <section id="dashboard" class="hidden-section">
+    <section class="dashboard-section">
 
-        <div class="dashboard">
+        <div class="dashboard-card">
 
-            <div class="dashboard-top">
+            <div class="dashboard-header">
 
                 <div>
-                    <span class="eyebrow">MY TABBY FLEX</span>
-                    <h2>You're all set</h2>
-                    <p>Your payment plan is ready.</p>
+                    <span class="eyebrow">YOUR FLEX PLAN</span>
+
+                    <h2>Payment overview</h2>
+
+                    <p>
+                        Your plan updates as your payments change.
+                    </p>
                 </div>
 
-                <div class="active-badge">
-                    ● Active plan
+                <div class="status">
+                    ● Flexible
                 </div>
 
             </div>
 
 
-            <div class="dashboard-cards">
+            <div class="dashboard-grid">
 
-                <div class="dashboard-card large">
+                <div class="dashboard-stat main-stat">
 
                     <span>Remaining balance</span>
 
-                    <strong id="dashboardRemaining">
-                        0 SAR
+                    <strong id="dashRemaining">
+                        1,200 SAR
                     </strong>
 
                     <div class="dashboard-progress">
-                        <div id="dashboardProgress"></div>
+                        <div id="dashProgress"></div>
                     </div>
 
-                    <small id="dashboardProgressText">
+                    <small id="dashProgressText">
                         0% paid
                     </small>
 
                 </div>
 
 
-                <div class="dashboard-card">
+                <div class="dashboard-stat">
 
-                    <span>Next payment</span>
+                    <span>Total paid</span>
 
-                    <strong id="dashboardNext">
+                    <strong id="dashPaid">
                         0 SAR
                     </strong>
 
-                    <small>Due next month</small>
+                    <small>so far</small>
 
                 </div>
 
 
-                <div class="dashboard-card">
+                <div class="dashboard-stat">
 
-                    <span>Payments left</span>
+                    <span>Last payment</span>
 
-                    <strong id="dashboardPayments">
-                        0
+                    <strong id="dashLast">
+                        0 SAR
                     </strong>
 
-                    <small>remaining payments</small>
+                    <small>today</small>
 
                 </div>
 
             </div>
 
+        </div>
 
-            <div class="dashboard-message">
+    </section>
 
-                <div class="dashboard-message-icon">
-                    ✓
-                </div>
 
-                <div>
-                    <strong>Plan created successfully</strong>
 
-                    <p>
-                        You can now track your payments
-                        and upcoming installments here.
-                    </p>
-                </div>
+    <section class="timeline-section">
 
+        <div class="timeline-header">
+
+            <div>
+                <span class="eyebrow">PAYMENT HISTORY</span>
+                <h2>Your flexible timeline</h2>
+            </div>
+
+            <span id="paymentCount" class="payment-count">
+                0 payments
+            </span>
+
+        </div>
+
+
+        <div id="timeline" class="timeline">
+
+            <div class="empty-timeline">
+                <div>↗</div>
+                <strong>No payments yet</strong>
+                <p>Your payment activity will appear here.</p>
             </div>
 
         </div>
@@ -448,11 +337,16 @@
 
     <section class="how-section" id="how">
 
-        <div class="how-header">
+        <div class="section-heading center">
 
             <span class="eyebrow">HOW IT WORKS</span>
 
-            <h2>Payments that fit your life</h2>
+            <h2>Flex around your budget</h2>
+
+            <p>
+                The idea is simple: your payment amount can change
+                depending on what works for you.
+            </p>
 
         </div>
 
@@ -460,38 +354,43 @@
         <div class="steps">
 
             <div class="step">
+
                 <div class="step-number">01</div>
 
-                <h3>Enter your purchase</h3>
+                <h3>Start your purchase</h3>
 
                 <p>
-                    Add the amount you want to purchase
-                    and explore your payment options.
+                    Your purchase starts with a payment plan.
                 </p>
+
             </div>
 
 
             <div class="step">
+
                 <div class="step-number">02</div>
 
-                <h3>Choose your plan</h3>
+                <h3>Choose what to pay</h3>
 
                 <p>
-                    Pick a standard plan or create a
-                    flexible plan based on your budget.
+                    Pay more when you have extra budget or less
+                    when you need more flexibility.
                 </p>
+
             </div>
 
 
             <div class="step">
+
                 <div class="step-number">03</div>
 
-                <h3>Stay in control</h3>
+                <h3>Your balance updates</h3>
 
                 <p>
-                    See your payment timeline clearly
-                    before confirming your plan.
+                    Every payment reduces your remaining balance
+                    and updates your payment history.
                 </p>
+
             </div>
 
         </div>
@@ -506,11 +405,11 @@
 
     <div class="logo">
         <div class="logo-icon">T</div>
-        Tabby <b>Flex</b>
+        Tabby <span>Flex</span>
     </div>
 
     <p>
-        Prototype concept — flexible payments experience
+        Flexible payment concept prototype
     </p>
 
 </footer>
@@ -519,232 +418,225 @@
 
 <script>
 
-let purchaseAmount = 0;
-let selectedPayments = 0;
-let selectedMonthly = 0;
-let isCustomPlan = false;
+const totalAmount = 1200;
+
+let remaining = totalAmount;
+let paid = 0;
+let paymentHistory = [];
+
+const paymentInput = document.getElementById("paymentAmount");
+const paymentSlider = document.getElementById("paymentSlider");
+const payButton = document.getElementById("payButton");
+const payButtonAmount = document.getElementById("payButtonAmount");
 
 
-const amountInput = document.getElementById("amount");
-const optionsButton = document.getElementById("seeOptions");
-const plansSection = document.getElementById("plansSection");
-const customBuilder = document.getElementById("customBuilder");
-const selectedPlan = document.getElementById("selectedPlan");
-const dashboard = document.getElementById("dashboard");
-
-const monthlyBudget = document.getElementById("monthlyBudget");
-const budgetSlider = document.getElementById("budgetSlider");
+function formatSAR(value) {
+    return Math.round(value).toLocaleString() + " SAR";
+}
 
 
+function updatePreview() {
 
-optionsButton.addEventListener("click", function () {
+    let value = Number(paymentInput.value);
 
-    const amount = Number(amountInput.value);
+    if (!value || value < 1) {
+        value = 1;
+    }
+
+    if (value > remaining) {
+        value = remaining;
+    }
+
+    paymentInput.value = value;
+    paymentSlider.value = value;
+
+    payButtonAmount.textContent = formatSAR(value);
+
+}
+
+
+paymentSlider.addEventListener("input", function () {
+
+    let value = Number(paymentSlider.value);
+
+    if (value > remaining) {
+        value = remaining;
+    }
+
+    paymentInput.value = value;
+
+    updatePreview();
+
+});
+
+
+paymentInput.addEventListener("input", function () {
+
+    let value = Number(paymentInput.value);
+
+    if (value > remaining) {
+        value = remaining;
+    }
+
+    if (value < 1) {
+        value = 1;
+    }
+
+    paymentSlider.value = value;
+
+    updatePreview();
+
+});
+
+
+payButton.addEventListener("click", function () {
+
+    if (remaining <= 0) {
+        return;
+    }
+
+    let amount = Number(paymentInput.value);
 
     if (!amount || amount <= 0) {
-        alert("Please enter a purchase amount.");
+        alert("Please enter a valid payment amount.");
         return;
     }
 
-    purchaseAmount = amount;
+    if (amount > remaining) {
+        amount = remaining;
+    }
 
-    document.getElementById("fourPayment").textContent =
-        Math.ceil(amount / 4).toLocaleString();
 
-    document.getElementById("sixPayment").textContent =
-        Math.ceil(amount / 6).toLocaleString();
+    remaining -= amount;
+    paid += amount;
 
-    plansSection.scrollIntoView({
-        behavior: "smooth"
+    paymentHistory.push({
+        amount: amount,
+        remaining: remaining
     });
+
+
+    updateDashboard(amount);
 
 });
 
 
+function updateDashboard(lastPayment) {
 
-function selectPlan(numberOfPayments) {
+    const percent =
+        Math.round((paid / totalAmount) * 100);
 
-    if (!purchaseAmount) {
-        alert("Please enter a purchase amount first.");
+    document.getElementById("remainingBalance").textContent =
+        formatSAR(remaining);
+
+    document.getElementById("paidText").textContent =
+        formatSAR(paid) + " paid";
+
+    document.getElementById("percentText").textContent =
+        percent + "%";
+
+
+    document.getElementById("progressBar").style.width =
+        percent + "%";
+
+
+    document.getElementById("dashRemaining").textContent =
+        formatSAR(remaining);
+
+    document.getElementById("dashPaid").textContent =
+        formatSAR(paid);
+
+    document.getElementById("dashLast").textContent =
+        formatSAR(lastPayment);
+
+
+    document.getElementById("dashProgress").style.width =
+        percent + "%";
+
+    document.getElementById("dashProgressText").textContent =
+        percent + "% paid";
+
+
+    document.getElementById("heroBalance").textContent =
+        formatSAR(remaining);
+
+    document.getElementById("heroPaid").textContent =
+        formatSAR(paid);
+
+    document.getElementById("heroNext").textContent =
+        remaining > 0
+            ? formatSAR(Math.min(300, remaining))
+            : "Completed";
+
+
+    document.getElementById("heroProgress").style.width =
+        percent + "%";
+
+
+    renderTimeline(lastPayment);
+
+
+    if (remaining <= 0) {
+
+        payButton.textContent = "Purchase fully paid ✓";
+        payButton.disabled = true;
+
+        paymentInput.disabled = true;
+        paymentSlider.disabled = true;
+
+    } else {
+
+        paymentInput.max = remaining;
+        paymentSlider.max = remaining;
+
+        let newValue = Math.min(
+            300,
+            remaining
+        );
+
+        paymentInput.value = newValue;
+        paymentSlider.value = newValue;
+
+        updatePreview();
+
+    }
+
+}
+
+
+function renderTimeline(lastPayment) {
+
+    const timeline =
+        document.getElementById("timeline");
+
+    document.getElementById("paymentCount").textContent =
+        paymentHistory.length +
+        (paymentHistory.length === 1
+            ? " payment"
+            : " payments");
+
+
+    if (paymentHistory.length === 0) {
+
+        timeline.innerHTML = `
+            <div class="empty-timeline">
+                <div>↗</div>
+                <strong>No payments yet</strong>
+                <p>Your payment activity will appear here.</p>
+            </div>
+        `;
+
         return;
     }
 
-    selectedPayments = numberOfPayments;
-    selectedMonthly = Math.ceil(
-        purchaseAmount / numberOfPayments
-    );
-
-    isCustomPlan = false;
-
-    document.getElementById("selectedTitle").textContent =
-        numberOfPayments + " Payments";
-
-    document.getElementById("selectedTotal").textContent =
-        purchaseAmount.toLocaleString() + " SAR";
-
-    createTimeline(
-        numberOfPayments,
-        selectedMonthly
-    );
-
-    updateSelectedSummary();
-
-    selectedPlan.classList.remove("hidden-section");
-
-    selectedPlan.scrollIntoView({
-        behavior: "smooth"
-    });
-}
-
-
-
-function showCustomBuilder() {
-
-    if (!purchaseAmount) {
-        alert("Please enter a purchase amount first.");
-        return;
-    }
-
-    document.getElementById("customPurchaseAmount").textContent =
-        purchaseAmount.toLocaleString() + " SAR";
-
-    customBuilder.classList.remove("hidden-section");
-
-    calculateCustomPlan();
-
-    customBuilder.scrollIntoView({
-        behavior: "smooth"
-    });
-}
-
-
-
-budgetSlider.addEventListener("input", function () {
-
-    monthlyBudget.value = budgetSlider.value;
-
-    calculateCustomPlan();
-
-});
-
-
-
-monthlyBudget.addEventListener("input", function () {
-
-    let value = Number(monthlyBudget.value);
-
-    if (value < 50) value = 50;
-    if (value > 1000) value = 1000;
-
-    monthlyBudget.value = value;
-    budgetSlider.value = value;
-
-    calculateCustomPlan();
-
-});
-
-
-
-function calculateCustomPlan() {
-
-    if (!purchaseAmount) return;
-
-    const budget = Number(monthlyBudget.value);
-
-    if (!budget || budget <= 0) return;
-
-    let payments = Math.ceil(
-        purchaseAmount / budget
-    );
-
-    if (payments < 2) {
-        payments = 2;
-    }
-
-    const finalPayment =
-        purchaseAmount -
-        budget * (payments - 1);
-
-    document.getElementById("customMonthly").textContent =
-        budget.toLocaleString() + " SAR";
-
-    document.getElementById("customPayments").textContent =
-        payments;
-
-    document.getElementById("customFinal").textContent =
-        finalPayment.toLocaleString() + " SAR";
-
-    document.getElementById("customTotal").textContent =
-        purchaseAmount.toLocaleString() + " SAR";
-}
-
-
-
-function confirmCustomPlan() {
-
-    const budget = Number(monthlyBudget.value);
-
-    selectedPayments = Math.ceil(
-        purchaseAmount / budget
-    );
-
-    if (selectedPayments < 2) {
-        selectedPayments = 2;
-    }
-
-    selectedMonthly = budget;
-
-    isCustomPlan = true;
-
-    const finalPayment =
-        purchaseAmount -
-        budget * (selectedPayments - 1);
-
-    document.getElementById("selectedTitle").textContent =
-        "Custom Flex Plan";
-
-    document.getElementById("selectedTotal").textContent =
-        purchaseAmount.toLocaleString() + " SAR";
-
-    createCustomTimeline(
-        selectedPayments,
-        budget,
-        finalPayment
-    );
-
-    updateSelectedSummary();
-
-    selectedPlan.classList.remove("hidden-section");
-
-    selectedPlan.scrollIntoView({
-        behavior: "smooth"
-    });
-}
-
-
-
-function createTimeline(numberOfPayments, payment) {
-
-    const timeline = document.getElementById("timeline");
 
     timeline.innerHTML = "";
 
-    for (let i = 1; i <= numberOfPayments; i++) {
 
-        let currentPayment = payment;
+    paymentHistory.forEach(function(payment, index) {
 
-        if (i === numberOfPayments) {
-
-            currentPayment =
-                purchaseAmount -
-                payment * (numberOfPayments - 1);
-
-        }
-
-        const dateText =
-            i === 1
-                ? "Today"
-                : "Month " + i;
+        const isLatest =
+            index === paymentHistory.length - 1;
 
         timeline.innerHTML += `
 
@@ -753,151 +645,88 @@ function createTimeline(numberOfPayments, payment) {
                 <div class="timeline-left">
 
                     <div class="timeline-dot">
-                        ${i === 1 ? "✓" : i}
+                        ✓
                     </div>
 
                     <div>
                         <strong>
-                            Payment ${i}
+                            Payment ${index + 1}
                         </strong>
 
                         <p>
-                            ${dateText}
+                            ${isLatest ? "Just now" : "Completed"}
                         </p>
                     </div>
 
                 </div>
 
-                <strong class="timeline-price">
-                    ${currentPayment.toLocaleString()} SAR
-                </strong>
+
+                <div class="timeline-right">
+
+                    <strong>
+                        ${formatSAR(payment.amount)}
+                    </strong>
+
+                    <span>
+                        ${formatSAR(payment.remaining)} remaining
+                    </span>
+
+                </div>
 
             </div>
 
         `;
-    }
-}
+
+    });
 
 
-
-function createCustomTimeline(
-    numberOfPayments,
-    budget,
-    finalPayment
-) {
-
-    const timeline = document.getElementById("timeline");
-
-    timeline.innerHTML = "";
-
-    for (let i = 1; i <= numberOfPayments; i++) {
-
-        const payment =
-            i === numberOfPayments
-                ? finalPayment
-                : budget;
-
-        const dateText =
-            i === 1
-                ? "Today"
-                : "Month " + i;
+    if (remaining > 0) {
 
         timeline.innerHTML += `
 
-            <div class="timeline-item">
+            <div class="timeline-item upcoming">
 
                 <div class="timeline-left">
 
-                    <div class="timeline-dot">
-                        ${i === 1 ? "✓" : i}
+                    <div class="timeline-dot upcoming-dot">
+                        ${paymentHistory.length + 1}
                     </div>
 
                     <div>
                         <strong>
-                            Payment ${i}
+                            Next payment
                         </strong>
 
                         <p>
-                            ${dateText}
+                            You choose the amount
                         </p>
                     </div>
 
                 </div>
 
-                <strong class="timeline-price">
-                    ${payment.toLocaleString()} SAR
-                </strong>
+
+                <div class="timeline-right">
+
+                    <strong>
+                        Flexible
+                    </strong>
+
+                    <span>
+                        ${formatSAR(remaining)} remaining
+                    </span>
+
+                </div>
 
             </div>
 
         `;
+
     }
+
 }
 
 
-
-function updateSelectedSummary() {
-
-    document.getElementById("nextPaymentAmount").textContent =
-        selectedMonthly.toLocaleString() + " SAR";
-
-    document.getElementById("nextPaymentDate").textContent =
-        "Today";
-
-    document.getElementById("progressText").textContent =
-        "0%";
-
-    document.getElementById("progressFill").style.width =
-        "0%";
-}
-
-
-
-function backToPlans() {
-
-    selectedPlan.classList.add("hidden-section");
-
-    plansSection.scrollIntoView({
-        behavior: "smooth"
-    });
-}
-
-
-
-function confirmPlan() {
-
-    const remaining =
-        purchaseAmount - selectedMonthly;
-
-    const paymentsLeft =
-        Math.max(selectedPayments - 1, 0);
-
-    const progress =
-        selectedPayments > 0
-            ? Math.round(100 / selectedPayments)
-            : 0;
-
-    document.getElementById("dashboardRemaining").textContent =
-        Math.max(remaining, 0).toLocaleString() + " SAR";
-
-    document.getElementById("dashboardNext").textContent =
-        selectedMonthly.toLocaleString() + " SAR";
-
-    document.getElementById("dashboardPayments").textContent =
-        paymentsLeft;
-
-    document.getElementById("dashboardProgress").style.width =
-        progress + "%";
-
-    document.getElementById("dashboardProgressText").textContent =
-        progress + "% paid";
-
-    dashboard.classList.remove("hidden-section");
-
-    dashboard.scrollIntoView({
-        behavior: "smooth"
-    });
-}
+updatePreview();
 
 </script>
 
