@@ -1,340 +1,142 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Tabby Flex</title>
-
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
 <nav>
-
     <div class="logo">
-        <span class="logo-icon">T</span>
-        <span>tabby <b>flex</b></span>
+        <div class="logo-icon">T</div>
+        Tabby <b>Flex</b>
     </div>
 
     <div class="nav-links">
-        <a href="#plans-section">My plans</a>
+        <a href="#plansSection">My Plans</a>
         <a href="#how">How it works</a>
-
-        <button class="profile">
-            My Account
-        </button>
+        <button class="profile">My Account</button>
     </div>
-
 </nav>
 
 
 <main>
 
-<section class="hero">
+    <section class="hero">
 
-    <div class="hero-text">
+        <div class="hero-text">
 
-        <div class="badge">
-            ✨ A new way to pay
-        </div>
+            <div class="badge">✦ Flexible payments</div>
 
-        <h1>
-            Pay your way.<br>
-            <span>Flex your payments.</span>
-        </h1>
-
-        <p>
-            Choose a payment plan that fits your budget.
-            More flexibility, more control.
-        </p>
-
-    </div>
-
-
-    <div class="calculator">
-
-        <div class="calculator-header">
-
-            <h2>
-                Try Tabby Flex
-            </h2>
+            <h1>
+                Pay your way.
+                <span>Flex your payments.</span>
+            </h1>
 
             <p>
-                Enter your purchase amount
+                Choose a payment plan that fits your budget.
+                Split your purchase into simple payments
+                and stay in control of your spending.
             </p>
 
         </div>
 
 
-        <label>
-            Purchase amount
-        </label>
+        <div class="calculator">
 
-
-        <div class="amount-input">
-
-            <span>SAR</span>
-
-            <input
-                type="number"
-                id="amount"
-                placeholder="1,200"
-                min="1"
-            >
-
-        </div>
-
-
-        <button
-            class="primary-btn"
-            onclick="calculatePlans()">
-
-            See my options →
-
-        </button>
-
-
-        <p class="small-text">
-            No commitment · Explore your options first
-        </p>
-
-    </div>
-
-</section>
-
-
-
-<section id="plans-section">
-
-    <div class="section-title">
-
-        <div>
-
-            <span class="eyebrow">
-                YOUR OPTIONS
-            </span>
-
-            <h2>
-                Choose what works for you
-            </h2>
-
-        </div>
-
-    </div>
-
-
-    <div id="plans">
-
-        <div class="empty-state">
-
-            <div class="empty-icon">
-                ✦
+            <div class="calculator-header">
+                <h2>Plan your purchase</h2>
+                <p>See how your purchase could be split.</p>
             </div>
 
-            <h3>
-                Your payment options will appear here
-            </h3>
+            <label for="amount">Purchase amount</label>
 
-            <p>
-                Enter a purchase amount above to explore your Flex plans.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<section
-    class="how-section"
-    id="how">
-
-    <div class="how-header">
-
-        <span class="eyebrow">
-            HOW FLEX WORKS
-        </span>
-
-        <h2>
-            More control over your payments
-        </h2>
-
-    </div>
-
-
-    <div class="steps">
-
-        <div class="step">
-
-            <div class="step-number">
-                01
+            <div class="amount-input">
+                <span>SAR</span>
+                <input type="number" id="amount" placeholder="1,200" min="1">
             </div>
 
-            <h3>
-                Enter your purchase
-            </h3>
+            <button class="primary-btn" id="seeOptions">
+                See my options
+            </button>
 
-            <p>
-                Tell us how much you're planning to spend.
+            <p class="small-text">
+                Prototype simulation — not an actual Tabby offer
             </p>
 
         </div>
 
+    </section>
 
-        <div class="step">
 
-            <div class="step-number">
-                02
-            </div>
 
-            <h3>
-                Explore your options
-            </h3>
+    <section id="plansSection">
 
-            <p>
-                Compare different payment schedules before choosing.
-            </p>
-
+        <div class="section-title">
+            <span class="eyebrow">YOUR OPTIONS</span>
+            <h2>Choose what works for you</h2>
         </div>
 
-
-        <div class="step">
-
-            <div class="step-number">
-                03
-            </div>
-
-            <h3>
-                Pick your Flex
-            </h3>
-
-            <p>
-                Choose the plan that works best for your budget.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-</main>
-
-
-
-<footer>
-
-    <div class="logo">
-
-        <span class="logo-icon">
-            T
-        </span>
-
-        <span>
-            tabby <b>flex</b>
-        </span>
-
-    </div>
-
-    <p>
-        Flexible payments, designed around you.
-    </p>
-
-</footer>
-
-
-
-<script>
-
-
-function calculatePlans() {
-
-    const amount =
-        Number(
-            document.getElementById("amount").value
-        );
-
-
-    if (!amount || amount <= 0) {
-
-        alert(
-            "Please enter a valid purchase amount."
-        );
-
-        return;
-    }
-
-
-    document.getElementById("plans").innerHTML = `
 
         <div class="plans">
+
+            <div class="plan-card">
+
+                <div class="plan-top">
+                    <h3>4 Payments</h3>
+                    <div class="check">✓</div>
+                </div>
+
+                <div class="price">
+                    <span id="fourPayment">300</span>
+                    <small>SAR</small>
+                </div>
+
+                <p>Pay every month</p>
+
+                <div class="divider"></div>
+
+                <div class="plan-info">
+                    <span>Number of payments</span>
+                    <strong>4</strong>
+                </div>
+
+                <button class="select-btn" onclick="selectPlan(4)">
+                    Choose plan
+                </button>
+
+            </div>
+
 
 
             <div class="plan-card recommended">
 
-                <div class="recommended-label">
-                    MOST POPULAR
-                </div>
-
+                <div class="recommended-label">POPULAR</div>
 
                 <div class="plan-top">
-
-                    <h3>
-                        4 Payments
-                    </h3>
-
-                    <span class="check">
-                        ✓
-                    </span>
-
+                    <h3>6 Payments</h3>
+                    <div class="check">✓</div>
                 </div>
-
 
                 <div class="price">
-
-                    ${(amount / 4).toFixed(2)}
-
-                    <small>
-                        SAR
-                    </small>
-
+                    <span id="sixPayment">200</span>
+                    <small>SAR</small>
                 </div>
 
-
-                <p>
-                    Every 2 weeks · 4 payments
-                </p>
-
+                <p>Lower monthly payments</p>
 
                 <div class="divider"></div>
 
-
                 <div class="plan-info">
-
-                    <span>
-                        Total
-                    </span>
-
-                    <strong>
-                        ${amount.toFixed(2)} SAR
-                    </strong>
-
+                    <span>Number of payments</span>
+                    <strong>6</strong>
                 </div>
 
-
-                <button
-                    class="select-btn"
-                    onclick="selectPlan(${amount}, 4, 'Every 2 weeks')">
-
-                    Select plan
-
+                <button class="select-btn dark" onclick="selectPlan(6)">
+                    Choose plan
                 </button>
 
             </div>
@@ -344,153 +146,56 @@ function calculatePlans() {
             <div class="plan-card">
 
                 <div class="plan-top">
-
-                    <h3>
-                        6 Payments
-                    </h3>
-
-                    <span class="flex-icon">
-                        ↗
-                    </span>
-
+                    <h3>Flex it</h3>
+                    <div class="flex-icon">✦</div>
                 </div>
 
+                <div class="price">Custom</div>
 
-                <div class="price">
-
-                    ${(amount / 6).toFixed(2)}
-
-                    <small>
-                        SAR
-                    </small>
-
-                </div>
-
-
-                <p>
-                    Every month · 6 payments
+                <p class="custom-message">
+                    Choose the monthly amount that works
+                    for your budget.
                 </p>
 
-
                 <div class="divider"></div>
-
 
                 <div class="plan-info">
-
-                    <span>
-                        Total
-                    </span>
-
-                    <strong>
-                        ${amount.toFixed(2)} SAR
-                    </strong>
-
+                    <span>Your budget</span>
+                    <strong>You choose</strong>
                 </div>
 
-
-                <button
-                    class="select-btn"
-                    onclick="selectPlan(${amount}, 6, 'Every month')">
-
-                    Select plan
-
-                </button>
-
-            </div>
-
-
-
-            <div class="plan-card custom">
-
-                <div class="plan-top">
-
-                    <h3>
-                        Flex it
-                    </h3>
-
-                    <span class="flex-icon">
-                        ✦
-                    </span>
-
-                </div>
-
-
-                <div class="price">
-                    Custom
-                </div>
-
-
-                <p>
-                    Build a plan around your budget
-                </p>
-
-
-                <div class="divider"></div>
-
-
-                <div class="custom-message">
-
-                    Choose the monthly amount
-                    that feels comfortable for you.
-
-                </div>
-
-
-                <button
-                    class="select-btn dark"
-                    onclick="showCustomPlan(${amount})">
-
-                    Build my plan →
-
+                <button class="select-btn" onclick="showCustomBuilder()">
+                    Build my plan
                 </button>
 
             </div>
 
         </div>
 
-    `;
-
-
-    document
-        .getElementById("plans-section")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
-
-}
+    </section>
 
 
 
-function showCustomPlan(amount) {
-
-    document.getElementById("plans").innerHTML = `
+    <section id="customBuilder" class="hidden-section">
 
         <div class="custom-builder">
 
             <div class="custom-builder-header">
 
                 <div>
+                    <span class="eyebrow">FLEX BUILDER</span>
 
-                    <span class="eyebrow">
-                        CUSTOM FLEX
-                    </span>
-
-                    <h2>
-                        Build your own payment plan
-                    </h2>
+                    <h2>Build your own payment plan</h2>
 
                     <p>
-                        Tell us what you can comfortably pay each month.
+                        Choose the monthly amount that feels
+                        comfortable for your budget.
                     </p>
-
                 </div>
 
-
                 <div class="purchase-pill">
-
-                    ${amount.toFixed(2)}
-                    SAR
-
+                    Purchase:
+                    <span id="customPurchaseAmount">0 SAR</span>
                 </div>
 
             </div>
@@ -498,268 +203,103 @@ function showCustomPlan(amount) {
 
             <div class="budget-input-section">
 
-                <label>
-                    Monthly amount
+                <label for="monthlyBudget">
+                    I can pay around
                 </label>
 
-
                 <div class="custom-input">
-
-                    <span>
-                        SAR
-                    </span>
-
+                    <span>SAR</span>
                     <input
                         type="number"
-                        id="monthlyAmount"
+                        id="monthlyBudget"
                         value="200"
-                        min="1"
-                        oninput="previewCustomPlan(${amount})"
+                        min="50"
+                        max="1000"
                     >
-
                 </div>
-
 
                 <input
                     type="range"
                     id="budgetSlider"
                     min="50"
-                    max="${Math.max(1000, amount)}"
+                    max="1000"
+                    step="25"
                     value="200"
-                    oninput="
-                        document.getElementById('monthlyAmount').value=this.value;
-                        previewCustomPlan(${amount});
-                    "
                 >
 
                 <div class="range-labels">
-
-                    <span>
-                        50 SAR
-                    </span>
-
-                    <span>
-                        ${Math.max(1000, amount)} SAR
-                    </span>
-
+                    <span>50 SAR</span>
+                    <span>1,000 SAR</span>
                 </div>
 
             </div>
 
 
-            <div id="customPreview">
+            <div class="custom-result">
+
+                <div class="result-main">
+                    <span>Estimated monthly payment</span>
+                    <strong id="customMonthly">200 SAR</strong>
+                </div>
+
+                <div class="result-details">
+
+                    <div>
+                        <span>Payments</span>
+                        <strong id="customPayments">6</strong>
+                    </div>
+
+                    <div>
+                        <span>Final payment</span>
+                        <strong id="customFinal">200 SAR</strong>
+                    </div>
+
+                    <div>
+                        <span>Total</span>
+                        <strong id="customTotal">1,200 SAR</strong>
+                    </div>
+
+                </div>
+
+                <p class="mini-note">
+                    Your plan is calculated from the monthly
+                    amount you choose.
+                </p>
 
             </div>
 
 
-            <div class="confirmation-actions">
-
-                <button
-                    class="back-btn"
-                    onclick="calculatePlans()">
-
-                    ← Back to plans
-
-                </button>
-
-
-                <button
-                    class="primary-btn confirm"
-                    onclick="confirmPlan()">
-
-                    Confirm my Flex →
-
-                </button>
-
-            </div>
+            <button class="primary-btn" onclick="confirmCustomPlan()">
+                Continue with this plan
+            </button>
 
         </div>
 
-    `;
-
-
-    previewCustomPlan(amount);
-
-
-    document
-        .getElementById("plans-section")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
-
-}
+    </section>
 
 
 
-function previewCustomPlan(amount) {
-
-    const input =
-        document.getElementById("monthlyAmount");
-
-
-    if (!input) return;
-
-
-    let monthly =
-        Number(input.value);
-
-
-    if (!monthly || monthly <= 0) {
-
-        document.getElementById(
-            "customPreview"
-        ).innerHTML = "";
-
-        return;
-    }
-
-
-    const months =
-        Math.ceil(
-            amount / monthly
-        );
-
-
-    const lastPayment =
-        amount -
-        (
-            monthly *
-            (months - 1)
-        );
-
-
-    document.getElementById(
-        "customPreview"
-    ).innerHTML = `
-
-        <div class="custom-result">
-
-            <div class="result-main">
-
-                <span>
-                    Your estimated monthly payment
-                </span>
-
-                <strong>
-                    ${monthly.toFixed(2)}
-                    SAR
-                </strong>
-
-            </div>
-
-
-            <div class="result-details">
-
-                <div>
-
-                    <span>
-                        Number of payments
-                    </span>
-
-                    <strong>
-                        ${months}
-                    </strong>
-
-                </div>
-
-
-                <div>
-
-                    <span>
-                        Final payment
-                    </span>
-
-                    <strong>
-                        ${lastPayment.toFixed(2)}
-                        SAR
-                    </strong>
-
-                </div>
-
-
-                <div>
-
-                    <span>
-                        Total
-                    </span>
-
-                    <strong>
-                        ${amount.toFixed(2)}
-                        SAR
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <div class="mini-note">
-
-                ✦ Your plan updates automatically
-                as you change your monthly budget.
-
-            </div>
-
-        </div>
-
-    `;
-
-}
-
-
-
-function selectPlan(
-    amount,
-    payments,
-    frequency
-) {
-
-    const payment =
-        amount / payments;
-
-
-    let schedule =
-        createPayments(
-            amount,
-            payments,
-            payment,
-            frequency
-        );
-
-
-    document.getElementById("plans").innerHTML = `
+    <section id="selectedPlan" class="hidden-section">
 
         <div class="selected-plan">
 
             <div class="selected-header">
 
                 <div>
+                    <span class="eyebrow">YOUR PLAN</span>
 
-                    <span class="eyebrow">
-                        PLAN SELECTED
-                    </span>
-
-                    <h2>
-                        ${payments} Payment Plan
+                    <h2 id="selectedTitle">
+                        6 Payments
                     </h2>
 
                     <p>
-                        ${frequency}
+                        Here's how your payments would look.
                     </p>
-
                 </div>
 
-
                 <div class="selected-total">
-
-                    <span>
-                        Total
-                    </span>
-
-                    <strong>
-                        ${amount.toFixed(2)} SAR
-                    </strong>
-
+                    <span>Purchase total</span>
+                    <strong id="selectedTotal">0 SAR</strong>
                 </div>
 
             </div>
@@ -768,179 +308,598 @@ function selectPlan(
             <div class="progress-area">
 
                 <div class="progress-label">
-
-                    <span>
-                        Payment progress
-                    </span>
-
-                    <span>
-                        0%
-                    </span>
-
+                    <span>Payment progress</span>
+                    <span id="progressText">0%</span>
                 </div>
-
 
                 <div class="progress-bar">
-
-                    <div class="progress-fill">
-                    </div>
-
+                    <div class="progress-fill" id="progressFill"></div>
                 </div>
 
             </div>
 
 
-            <div class="timeline">
+            <div class="next-payment">
 
-                ${schedule}
+                <div>
+                    <span>Next payment</span>
+                    <strong id="nextPaymentAmount">0 SAR</strong>
+                </div>
+
+                <div class="next-payment-date">
+                    <span>Due</span>
+                    <strong id="nextPaymentDate">Today</strong>
+                </div>
 
             </div>
+
+
+            <div class="timeline" id="timeline"></div>
 
 
             <div class="confirmation-actions">
 
-                <button
-                    class="back-btn"
-                    onclick="calculatePlans()">
-
+                <button class="back-btn" onclick="backToPlans()">
                     ← Change plan
-
                 </button>
 
-
-                <button
-                    class="primary-btn confirm"
-                    onclick="confirmPlan()">
-
-                    Confirm my plan →
-
+                <button class="primary-btn confirm" onclick="confirmPlan()">
+                    Confirm plan
                 </button>
 
             </div>
 
         </div>
 
-    `;
+    </section>
 
 
-    document
-        .getElementById("plans-section")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
 
+    <section id="dashboard" class="hidden-section">
+
+        <div class="dashboard">
+
+            <div class="dashboard-top">
+
+                <div>
+                    <span class="eyebrow">MY TABBY FLEX</span>
+                    <h2>You're all set</h2>
+                    <p>Your payment plan is ready.</p>
+                </div>
+
+                <div class="active-badge">
+                    ● Active plan
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-cards">
+
+                <div class="dashboard-card large">
+
+                    <span>Remaining balance</span>
+
+                    <strong id="dashboardRemaining">
+                        0 SAR
+                    </strong>
+
+                    <div class="dashboard-progress">
+                        <div id="dashboardProgress"></div>
+                    </div>
+
+                    <small id="dashboardProgressText">
+                        0% paid
+                    </small>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <span>Next payment</span>
+
+                    <strong id="dashboardNext">
+                        0 SAR
+                    </strong>
+
+                    <small>Due next month</small>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <span>Payments left</span>
+
+                    <strong id="dashboardPayments">
+                        0
+                    </strong>
+
+                    <small>remaining payments</small>
+
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-message">
+
+                <div class="dashboard-message-icon">
+                    ✓
+                </div>
+
+                <div>
+                    <strong>Plan created successfully</strong>
+
+                    <p>
+                        You can now track your payments
+                        and upcoming installments here.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="how-section" id="how">
+
+        <div class="how-header">
+
+            <span class="eyebrow">HOW IT WORKS</span>
+
+            <h2>Payments that fit your life</h2>
+
+        </div>
+
+
+        <div class="steps">
+
+            <div class="step">
+                <div class="step-number">01</div>
+
+                <h3>Enter your purchase</h3>
+
+                <p>
+                    Add the amount you want to purchase
+                    and explore your payment options.
+                </p>
+            </div>
+
+
+            <div class="step">
+                <div class="step-number">02</div>
+
+                <h3>Choose your plan</h3>
+
+                <p>
+                    Pick a standard plan or create a
+                    flexible plan based on your budget.
+                </p>
+            </div>
+
+
+            <div class="step">
+                <div class="step-number">03</div>
+
+                <h3>Stay in control</h3>
+
+                <p>
+                    See your payment timeline clearly
+                    before confirming your plan.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<footer>
+
+    <div class="logo">
+        <div class="logo-icon">T</div>
+        Tabby <b>Flex</b>
+    </div>
+
+    <p>
+        Prototype concept — flexible payments experience
+    </p>
+
+</footer>
+
+
+
+<script>
+
+let purchaseAmount = 0;
+let selectedPayments = 0;
+let selectedMonthly = 0;
+let isCustomPlan = false;
+
+
+const amountInput = document.getElementById("amount");
+const optionsButton = document.getElementById("seeOptions");
+const plansSection = document.getElementById("plansSection");
+const customBuilder = document.getElementById("customBuilder");
+const selectedPlan = document.getElementById("selectedPlan");
+const dashboard = document.getElementById("dashboard");
+
+const monthlyBudget = document.getElementById("monthlyBudget");
+const budgetSlider = document.getElementById("budgetSlider");
+
+
+
+optionsButton.addEventListener("click", function () {
+
+    const amount = Number(amountInput.value);
+
+    if (!amount || amount <= 0) {
+        alert("Please enter a purchase amount.");
+        return;
+    }
+
+    purchaseAmount = amount;
+
+    document.getElementById("fourPayment").textContent =
+        Math.ceil(amount / 4).toLocaleString();
+
+    document.getElementById("sixPayment").textContent =
+        Math.ceil(amount / 6).toLocaleString();
+
+    plansSection.scrollIntoView({
+        behavior: "smooth"
+    });
+
+});
+
+
+
+function selectPlan(numberOfPayments) {
+
+    if (!purchaseAmount) {
+        alert("Please enter a purchase amount first.");
+        return;
+    }
+
+    selectedPayments = numberOfPayments;
+    selectedMonthly = Math.ceil(
+        purchaseAmount / numberOfPayments
+    );
+
+    isCustomPlan = false;
+
+    document.getElementById("selectedTitle").textContent =
+        numberOfPayments + " Payments";
+
+    document.getElementById("selectedTotal").textContent =
+        purchaseAmount.toLocaleString() + " SAR";
+
+    createTimeline(
+        numberOfPayments,
+        selectedMonthly
+    );
+
+    updateSelectedSummary();
+
+    selectedPlan.classList.remove("hidden-section");
+
+    selectedPlan.scrollIntoView({
+        behavior: "smooth"
+    });
 }
 
 
 
-function createPayments(
-    amount,
-    payments,
-    payment,
-    frequency
-) {
+function showCustomBuilder() {
 
-    let html = "";
+    if (!purchaseAmount) {
+        alert("Please enter a purchase amount first.");
+        return;
+    }
+
+    document.getElementById("customPurchaseAmount").textContent =
+        purchaseAmount.toLocaleString() + " SAR";
+
+    customBuilder.classList.remove("hidden-section");
+
+    calculateCustomPlan();
+
+    customBuilder.scrollIntoView({
+        behavior: "smooth"
+    });
+}
 
 
-    for (
-        let i = 1;
-        i <= payments;
-        i++
-    ) {
 
-        const date =
-            new Date();
+budgetSlider.addEventListener("input", function () {
+
+    monthlyBudget.value = budgetSlider.value;
+
+    calculateCustomPlan();
+
+});
 
 
-        if (
-            frequency === "Every 2 weeks"
-        ) {
 
-            date.setDate(
-                date.getDate()
-                +
-                ((i - 1) * 14)
-            );
+monthlyBudget.addEventListener("input", function () {
 
-        } else {
+    let value = Number(monthlyBudget.value);
 
-            date.setMonth(
-                date.getMonth()
-                +
-                (i - 1)
-            );
+    if (value < 50) value = 50;
+    if (value > 1000) value = 1000;
+
+    monthlyBudget.value = value;
+    budgetSlider.value = value;
+
+    calculateCustomPlan();
+
+});
+
+
+
+function calculateCustomPlan() {
+
+    if (!purchaseAmount) return;
+
+    const budget = Number(monthlyBudget.value);
+
+    if (!budget || budget <= 0) return;
+
+    let payments = Math.ceil(
+        purchaseAmount / budget
+    );
+
+    if (payments < 2) {
+        payments = 2;
+    }
+
+    const finalPayment =
+        purchaseAmount -
+        budget * (payments - 1);
+
+    document.getElementById("customMonthly").textContent =
+        budget.toLocaleString() + " SAR";
+
+    document.getElementById("customPayments").textContent =
+        payments;
+
+    document.getElementById("customFinal").textContent =
+        finalPayment.toLocaleString() + " SAR";
+
+    document.getElementById("customTotal").textContent =
+        purchaseAmount.toLocaleString() + " SAR";
+}
+
+
+
+function confirmCustomPlan() {
+
+    const budget = Number(monthlyBudget.value);
+
+    selectedPayments = Math.ceil(
+        purchaseAmount / budget
+    );
+
+    if (selectedPayments < 2) {
+        selectedPayments = 2;
+    }
+
+    selectedMonthly = budget;
+
+    isCustomPlan = true;
+
+    const finalPayment =
+        purchaseAmount -
+        budget * (selectedPayments - 1);
+
+    document.getElementById("selectedTitle").textContent =
+        "Custom Flex Plan";
+
+    document.getElementById("selectedTotal").textContent =
+        purchaseAmount.toLocaleString() + " SAR";
+
+    createCustomTimeline(
+        selectedPayments,
+        budget,
+        finalPayment
+    );
+
+    updateSelectedSummary();
+
+    selectedPlan.classList.remove("hidden-section");
+
+    selectedPlan.scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+
+
+function createTimeline(numberOfPayments, payment) {
+
+    const timeline = document.getElementById("timeline");
+
+    timeline.innerHTML = "";
+
+    for (let i = 1; i <= numberOfPayments; i++) {
+
+        let currentPayment = payment;
+
+        if (i === numberOfPayments) {
+
+            currentPayment =
+                purchaseAmount -
+                payment * (numberOfPayments - 1);
 
         }
-
 
         const dateText =
             i === 1
                 ? "Today"
-                : date.toLocaleDateString(
-                    "en-US",
-                    {
-                        month: "short",
-                        day: "numeric"
-                    }
-                );
+                : "Month " + i;
 
-
-        html += `
+        timeline.innerHTML += `
 
             <div class="timeline-item">
 
                 <div class="timeline-left">
 
                     <div class="timeline-dot">
-                        ${i}
+                        ${i === 1 ? "✓" : i}
                     </div>
 
                     <div>
-
                         <strong>
-                            ${dateText}
+                            Payment ${i}
                         </strong>
 
                         <p>
-                            Payment ${i} of ${payments}
+                            ${dateText}
                         </p>
-
                     </div>
 
                 </div>
 
-
                 <strong class="timeline-price">
-
-                    ${payment.toFixed(2)}
-                    SAR
-
+                    ${currentPayment.toLocaleString()} SAR
                 </strong>
 
             </div>
 
         `;
-
     }
+}
 
 
-    return html;
 
+function createCustomTimeline(
+    numberOfPayments,
+    budget,
+    finalPayment
+) {
+
+    const timeline = document.getElementById("timeline");
+
+    timeline.innerHTML = "";
+
+    for (let i = 1; i <= numberOfPayments; i++) {
+
+        const payment =
+            i === numberOfPayments
+                ? finalPayment
+                : budget;
+
+        const dateText =
+            i === 1
+                ? "Today"
+                : "Month " + i;
+
+        timeline.innerHTML += `
+
+            <div class="timeline-item">
+
+                <div class="timeline-left">
+
+                    <div class="timeline-dot">
+                        ${i === 1 ? "✓" : i}
+                    </div>
+
+                    <div>
+                        <strong>
+                            Payment ${i}
+                        </strong>
+
+                        <p>
+                            ${dateText}
+                        </p>
+                    </div>
+
+                </div>
+
+                <strong class="timeline-price">
+                    ${payment.toLocaleString()} SAR
+                </strong>
+
+            </div>
+
+        `;
+    }
+}
+
+
+
+function updateSelectedSummary() {
+
+    document.getElementById("nextPaymentAmount").textContent =
+        selectedMonthly.toLocaleString() + " SAR";
+
+    document.getElementById("nextPaymentDate").textContent =
+        "Today";
+
+    document.getElementById("progressText").textContent =
+        "0%";
+
+    document.getElementById("progressFill").style.width =
+        "0%";
+}
+
+
+
+function backToPlans() {
+
+    selectedPlan.classList.add("hidden-section");
+
+    plansSection.scrollIntoView({
+        behavior: "smooth"
+    });
 }
 
 
 
 function confirmPlan() {
 
-    alert(
-        "Your Tabby Flex plan has been confirmed!"
-    );
+    const remaining =
+        purchaseAmount - selectedMonthly;
 
+    const paymentsLeft =
+        Math.max(selectedPayments - 1, 0);
+
+    const progress =
+        selectedPayments > 0
+            ? Math.round(100 / selectedPayments)
+            : 0;
+
+    document.getElementById("dashboardRemaining").textContent =
+        Math.max(remaining, 0).toLocaleString() + " SAR";
+
+    document.getElementById("dashboardNext").textContent =
+        selectedMonthly.toLocaleString() + " SAR";
+
+    document.getElementById("dashboardPayments").textContent =
+        paymentsLeft;
+
+    document.getElementById("dashboardProgress").style.width =
+        progress + "%";
+
+    document.getElementById("dashboardProgressText").textContent =
+        progress + "% paid";
+
+    dashboard.classList.remove("hidden-section");
+
+    dashboard.scrollIntoView({
+        behavior: "smooth"
+    });
 }
 
 </script>
 
 </body>
 </html>
-```
